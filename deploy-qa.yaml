@@ -1,0 +1,8 @@
+kind: Service
+metadata:
+  name: app-dev
+spec:
+  template:
+    spec:
+      containers:
+      - image: app
