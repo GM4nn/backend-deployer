@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-api-deployment
+spec:
+  replicas: 3  # Número de instancias (Pods) que quieres ejecutar
+  selector:
+    matchLabels:
+      app: simple-api
+  template:
+    metadata:
+      labels:
+        app: simple-api
+    spec:
+      containers:
+        - name: simple-api-container
+          image: us-central1-docker.pkg.dev/pacific-cab-437523-n1/containers-repo/mi-api-image:latest
+          ports:
+            - containerPort: 8080  # El puerto en el que escucha tu aplicación dentro del contenedor

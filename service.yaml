@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: simple-api-service
+spec:
+  selector:
+    app: simple-api
+  ports:
+    - protocol: TCP
+      port: 80    # El puerto al que accederás desde el exterior
+      targetPort: 8080  # El puerto en el que tus contenedores están escuchando
+  type: LoadBalancer # provisionará un balanceador de carga externo (si tu proveedor de la nube lo soporta, como en GKE) con una IP pública.
